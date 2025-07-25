@@ -4,6 +4,7 @@ import ToDoList from './components/ToDoList';
 
 function App() {
 
+
   const [inputValue, setInputValue] = useState("");
   const [todos, setTodos] = useState([]);
 
@@ -14,6 +15,9 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+
+    // pushing the todo object into the todos array to make an array of objects
+    // plan on adding more to the object in the future (category, completed boolean, etc.)
     setTodos([...todos,{text: inputValue, date: new Date() }]);
     console.log("New todo added:", {
       text: inputValue,

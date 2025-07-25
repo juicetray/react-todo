@@ -14,8 +14,10 @@ const ToDoItem = ({inputValue}) => {
         <FaTrash />
     </div>
   </div>
-  
 );
 }
 
 export default ToDoItem
+
+        {/* .toLocaleString() stops the "Unable to render object" error 
+        by turning the date object into a string*/}
