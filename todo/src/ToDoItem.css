@@ -1,0 +1,47 @@
+.item-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  background: white;
+  border-radius: 0.5rem;
+}
+
+.item-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.item-name {
+    font-weight: bold;
+    margin: 0;
+    color: black;
+}
+
+.item-date {
+  font-size: 0.85rem;
+  margin: 0.25rem 0 0;
+  color: gray;
+}
+
+li {
+    list-style-type: none;
+}
+
+.icon-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.icon-buttons svg {
+  cursor: pointer;
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #666;
+  transition: color 0.2s ease;
+}
+
+.icon-buttons svg:hover {
+  color: crimson;
+}
+
