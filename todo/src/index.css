@@ -1,17 +1,31 @@
 :root {
+  /* typography styling */
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* color palette */
+  --bg-dark: oklch(0.1 0.05 261);
+  --bg: oklch(0.15 0.05 261);
+  --bg-light: oklch(0.2 0.05 261);
+  --text: oklch(0.96 0.1 261);
+  --text-muted: oklch(0.76 0.1 261);
+  --highlight: oklch(0.5 0.1 261);
+  --border: oklch(0.4 0.1 261);
+  --border-muted: oklch(0.3 0.1 261);
+  --primary: oklch(0.76 0.1 261);
+  --secondary: oklch(0.76 0.1 81);
+  --danger: oklch(0.7 0.1 30);
+  --warning: oklch(0.7 0.1 100);
+  --success: oklch(0.7 0.1 160);
+  --info: oklch(0.7 0.1 260);
 }
+
 
 a {
   font-weight: 500;

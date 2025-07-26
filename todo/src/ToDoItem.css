@@ -3,7 +3,8 @@
   align-items: center;
   justify-content: space-between;
   padding: 0.5rem 1rem;
-  background: white;
+  background-color: var(--bg-light);
+  border: 1px solid var(--border-muted);
   border-radius: 0.5rem;
 }
 
@@ -13,16 +14,21 @@
 }
 
 .item-name {
-    font-weight: bold;
-    margin: 0;
-    color: black;
+  color: var(--text);
+  font-weight: bold;
+}
+
+.item-name.completed {
+  text-decoration: line-through;
+  color: gray;
 }
 
 .item-date {
+  color: var(--text-muted);
   font-size: 0.85rem;
-  margin: 0.25rem 0 0;
-  color: gray;
+  margin-top: 0.25rem;
 }
+
 
 li {
     list-style-type: none;
@@ -37,11 +43,16 @@ li {
   cursor: pointer;
   width: 1.25rem;
   height: 1.25rem;
-  color: #666;
+  color: var(--text-muted);
   transition: color 0.2s ease;
 }
 
-.icon-buttons svg:hover {
-  color: crimson;
+.icon-edit:hover {
+  color: var(--info);
 }
-
+.icon-delete:hover {
+  color: var(--danger);
+}
+.icon-complete:hover {
+  color: var(--success);
+}

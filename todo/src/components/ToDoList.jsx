@@ -1,13 +1,15 @@
 import ToDoItem from "./ToDoItem"
 import "../ToDoList.css";
 
-const ToDoList = ({todos}) => {
+const ToDoList = ({todos, handleDelete, handleCompletion}) => {
   return (
     <div className="item-container">
-   {todos.map((todo, index) => (
+   {todos.map((todo) => (
     <ToDoItem
-    key={index}
-    inputValue={todo}
+    key={todo.id}
+    todo={todo}
+    handleDelete={handleDelete}
+    handleCompletion={handleCompletion}
     />
    ))}
     </div>

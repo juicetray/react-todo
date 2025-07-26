@@ -1,16 +1,29 @@
 import './App.css'
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import ToDoList from './components/ToDoList';
 
 function App() {
-
-
   const [inputValue, setInputValue] = useState("");
   const [todos, setTodos] = useState([]);
+
+     useEffect(() => {
+      console.log("Updated todos:", todos)
+    }, [todos])
 
 
   const handleChange = (e) => {
     setInputValue(e.target.value);
+  }
+
+  // made the todoitem return an object for better scaling and more customization
+
+  const generateToDo = () => {
+    return {
+      text: inputValue,
+      date: new Date(),
+      id: crypto.randomUUID(),
+      completed: false
+    }
   }
 
   const handleSubmit = (e) => {
@@ -18,12 +31,26 @@ function App() {
 
     // pushing the todo object into the todos array to make an array of objects
     // plan on adding more to the object in the future (category, completed boolean, etc.)
-    setTodos([...todos,{text: inputValue, date: new Date() }]);
-    console.log("New todo added:", {
-      text: inputValue,
-      date: new Date()
-  });
+    const newTodo = generateToDo(inputValue);
+    setTodos([...todos,newTodo]);
 }
+
+
+//delete function
+const handleDelete = (id) => {
+  setTodos(todos.filter(todo => todo.id !== id))
+}
+
+const handleCompletion = (id) => {
+  setTodos(todos.map((todo) => {
+    if (todo.id === id) {
+      return {
+        ...todo, completed: !todo.completed
+      };
+    }
+    return todo;
+  })
+)};
 
   return (
     <>
@@ -49,7 +76,9 @@ function App() {
         </button>
       </form>
       <ToDoList
-      todos={todos} />
+      todos={todos}
+      handleDelete={handleDelete}
+      handleCompletion={handleCompletion} />
       </div>
     </>
   )

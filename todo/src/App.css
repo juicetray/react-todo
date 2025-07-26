@@ -4,3 +4,35 @@
   padding: 2rem;
   text-align: center;
 }
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+.input {
+  background-color: var(--bg-light);
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.input:focus {
+  outline: 2px solid var(--highlight);
+}
+
+.btn {
+  background-color: var(--primary);
+  color: var(--bg-dark);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background-color: var(--highlight);
+}
