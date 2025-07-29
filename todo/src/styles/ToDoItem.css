@@ -23,6 +23,10 @@
   color: gray;
 }
 
+.edit-input {
+  color: var(--text-muted);
+}
+
 .item-date {
   color: var(--text-muted);
   font-size: 0.85rem;

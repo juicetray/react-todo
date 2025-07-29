@@ -11,6 +11,13 @@ body {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
+form {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+
 .input {
   background-color: var(--bg-light);
   color: var(--text);
