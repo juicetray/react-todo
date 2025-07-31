@@ -7,6 +7,7 @@ const ToDoList = ({todos, handleDelete, handleCompletion, handleEdit, handleConf
    {
     todos.map((todo) => (
     <ToDoItem
+    className="todo"
     key={todo.id}
     todo={todo}
     handleDelete={handleDelete}
