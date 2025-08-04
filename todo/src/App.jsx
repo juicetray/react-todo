@@ -13,27 +13,45 @@ function App() {
   handleCompletion,
   handleEdit,
   handleConfirmEdit,
-  handleCancelEdit
+  handleCancelEdit,
+  selectedCategory,
+  setSelectedCategory,
+  categoryList,
+  activeFilter,
+  updateActiveFilter
 } = useTodos();
+
+const filteredTodos = activeFilter ? todos.filter(todo => todo.category === activeFilter) : todos
 
   return (
     <>
-      <div>
-       <h1>ToDo App </h1>
-        <ToDoForm
+  <div className="app-container">
+    <h1>ToDo App</h1>
+    <div className="form-wrapper">
+      <ToDoForm
         inputValue={inputValue}
         handleChange={handleChange}
         handleSubmit={handleSubmit}
-        />
-        <ToDoList
-        todos={todos}
-        handleDelete={handleDelete}
-        handleCompletion={handleCompletion}
-        handleEdit={handleEdit}
-        handleConfirmEdit={handleConfirmEdit}
-        handleCancelEdit={handleCancelEdit} />
-      </div>
-    </>
+        selectedCategory={selectedCategory}
+        setSelectedCategory={setSelectedCategory}
+      />
+    </div>
+    <div className="category-buttons">
+    {categoryList.map((category) => (
+    <button className="btn filter-btn" onClick={() => updateActiveFilter(category)}>{category}</button>
+    ))}
+    </div>
+    <ToDoList
+      todos={filteredTodos}
+      handleDelete={handleDelete}
+      handleCompletion={handleCompletion}
+      handleEdit={handleEdit}
+      handleConfirmEdit={handleConfirmEdit}
+      handleCancelEdit={handleCancelEdit}
+    />
+  </div>
+</>
+
   )
 }
 

@@ -5,7 +5,9 @@ export default function useTodos() {
   const [inputValue, setInputValue] = useState("");
   const [todos, setTodos] = useState([]);
   const [hasInitialized, setHasInitialized] = useState(false);
-
+  const [selectedCategory, setSelectedCategory] = useState("General");
+  const [activeFilter, setActiveFilter] = useState("All");
+  const categoryList = [...new Set(todos.map(todo => todo.category))];
 
   // Log whenever todos change
   useEffect(() => {
@@ -16,13 +18,11 @@ export default function useTodos() {
     setHasInitialized(true);
   }, []);
 
-    useEffect(() => {
+  useEffect(() => {
   if (hasInitialized) {
     setTodo("todos", todos);
   }
 }, [todos, hasInitialized]);
-
-
 
   const handleChange = (e) => {
     setInputValue(e.target.value);
@@ -34,7 +34,8 @@ export default function useTodos() {
     date: new Date(),
     id: crypto.randomUUID(),
     completed: false,
-    isEditing: false
+    isEditing: false,
+    category: selectedCategory
   });
 
   const handleSubmit = (e) => {
@@ -85,6 +86,14 @@ export default function useTodos() {
   );
 };
 
+const updateActiveFilter = (category) => {
+  if (activeFilter === category) {
+    setActiveFilter("All")
+  } else {
+  setActiveFilter(category)
+  }
+};
+
 
   return {
     inputValue,
@@ -95,6 +104,12 @@ export default function useTodos() {
     handleCompletion,
     handleEdit,
     handleConfirmEdit,
-    handleCancelEdit
+    handleCancelEdit,
+    selectedCategory,
+    setSelectedCategory,
+    activeFilter,
+    setActiveFilter,
+    categoryList,
+    updateActiveFilter
   };
 }
