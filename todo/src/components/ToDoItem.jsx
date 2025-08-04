@@ -25,7 +25,7 @@ const inputRef = useRef(null);
         placeholder="New Todo name here"
         ref={inputRef}
       />
-        <p className="item-date">Date: {todo.date}</p>
+        <p className="item-date">Date: {todo.date.toLocaleString()}</p>
       </div>
       <div className="icon-buttons">
         <FaCheck className="icon-confirm" onClick={() => handleConfirmEdit(todo.id, inputRef.current.value)
@@ -40,6 +40,7 @@ const inputRef = useRef(null);
   <div className="item-div">
     <div className="item-content">
         <li className={`item-name ${todo.completed ? "completed" : ""}`}>Title: {todo.text}</li>
+        <p className="item-category">Category: {todo.category}</p>
         <p className="item-date">Date: {todo.date.toLocaleString()}</p>
     </div>
     <div className="icon-buttons">

@@ -1,4 +1,4 @@
-const ToDoForm = ({ inputValue, handleChange, handleSubmit }) => {
+const ToDoForm = ({ inputValue, handleChange, handleSubmit, selectedCategory, setSelectedCategory }) => {
   return (
     <form onSubmit={handleSubmit}>
       <h2 className="label-wrapper">
@@ -15,6 +15,13 @@ const ToDoForm = ({ inputValue, handleChange, handleSubmit }) => {
         value={inputValue}
         onChange={handleChange}
       />
+      <select value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)}>
+        <option value="General">General</option>
+        <option value="Fitness">Fitness</option>
+        <option value="Work">Work</option>
+        <option value="Personal">Personal</option>
+      </select>
+
       <button type="submit" className="btn btn__primary btn__lg">
         Add
       </button>
